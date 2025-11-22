@@ -1,6 +1,6 @@
 {
   "name": "ADS1115",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": {
     "name": "Maximiliano Ramirez",
     "email": "maximiliano.ramirezbravo@gmail.com"
@@ -11,7 +11,7 @@
   },
   "description": "ADS1115 library for Arduino. Easy to use. Contains all the functions to interact with the ADS1115 ADC.",
   "keywords": "arduino, adc, analog, digital, converter, ads1115, i2c, 16-bit, 4-channel, low-power, pga, comparator, alert, interrupt",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "frameworks": "arduino",
   "headers": "ADS1115.h"
 }
