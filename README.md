@@ -8,6 +8,19 @@
   <b>Read the popular 4 x 16-bit ADC via I²C!</b>
 </p>
 
+<p align="center">
+  <a href="https://www.ardu-badge.com/ADS1115">
+    <img src="https://www.ardu-badge.com/badge/ADS1115.svg?" alt="Arduino Library Badge">
+  </a>
+  <a href="https://registry.platformio.org/libraries/alkonosst/ADS1115">
+    <img src="https://badges.registry.platformio.org/packages/alkonosst/library/ADS1115.svg" alt="PlatformIO Registry">
+  </a>
+  <br><br>
+  <a href="https://ko-fi.com/alkonosst">
+    <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Ko-fi">
+    </a>
+</p>
+
 ---
 
 # Table of contents <!-- omit in toc -->
@@ -25,6 +38,7 @@
     - [Starting a conversion](#starting-a-conversion)
     - [Reading the conversion result](#reading-the-conversion-result)
 - [TODOs](#todos)
+- [License](#license)
 
 # Description
 
@@ -356,3 +370,7 @@ void setup() {
 # TODOs
 
 - [ ] Add more examples
+
+# License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
