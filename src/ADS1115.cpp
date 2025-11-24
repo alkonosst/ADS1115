@@ -248,7 +248,7 @@ Status ADS1115_ADC::readConversionVoltage(float& voltage) {
 }
 
 float ADS1115_ADC::convertToVoltage(const int16_t value) {
-  float voltage;
+  float voltage = 0.0f;
 
   switch (_pga) {
     case Pga::FSR_0_256V: voltage = value * _fsr_0_256; break;
