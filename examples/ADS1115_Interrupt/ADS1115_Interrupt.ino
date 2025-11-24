@@ -12,7 +12,7 @@ ADS1115_ADC adc(I2CAddress::Gnd);
 const uint8_t ADC_INT   = 4;
 volatile bool adc_ready = false;
 
-void IRAM_ATTR alertCallback();
+void IRAM_ATTR alertCallback() { adc_ready = true; }
 
 void setup() {
   Serial.begin(115200);
@@ -34,7 +34,7 @@ void setup() {
   Status status = adc.init();
 
   if (status != Status::Ok) {
-    Serial.printf("ADS1115 initialization failed, error: %u", status);
+    Serial.printf("ADS1115 initialization failed, error: %u", static_cast<uint8_t>(status));
     while (true)
       ;
   }
@@ -46,7 +46,7 @@ void setup() {
   status = adc.uploadConfig();
 
   if (status != Status::Ok) {
-    Serial.printf("ADS1115 uploadConfig failed, error: %u", status);
+    Serial.printf("ADS1115 uploadConfig failed, error: %u", static_cast<uint8_t>(status));
     while (true)
       ;
   }
@@ -55,7 +55,8 @@ void setup() {
   status = adc.enableConversionReadyPin();
 
   if (status != Status::Ok) {
-    Serial.printf("ADS1115 enableConversionReadyPin failed, error: %u", status);
+    Serial.printf("ADS1115 enableConversionReadyPin failed, error: %u",
+                  static_cast<uint8_t>(status));
     while (true)
       ;
   }
@@ -76,7 +77,8 @@ void loop() {
     Status status = adc.startSingleShotConversion(channel);
 
     if (status != Status::Ok) {
-      Serial.printf("ADS1115 startSingleShotConversion failed, error: %u", status);
+      Serial.printf("ADS1115 startSingleShotConversion failed, error: %u",
+                    static_cast<uint8_t>(status));
       last_time = millis();
       return;
     }
@@ -95,7 +97,7 @@ void loop() {
     Status status = adc.readConversion(value[channel]);
 
     if (status != Status::Ok) {
-      Serial.printf("ADS1115 readConversion failed, error: %u", status);
+      Serial.printf("ADS1115 readConversion failed, error: %u", static_cast<uint8_t>(status));
       converting = false;
       last_time  = millis();
       return;
@@ -110,5 +112,3 @@ void loop() {
     last_time  = millis();
   }
 }
-
-void IRAM_ATTR alertCallback() { adc_ready = true; }
